@@ -164,7 +164,6 @@ bindsym $mod+Home workspace " terminal"
 # bindsym $mod+3 workspace "3: Bench"
 # bindsym $mod+4 workspace "4: Home"
 # bindsym $mod+5 workspace "5: Other"
-#
 
 # move focused container to workspace
 # bindsym $mod+Shift+1 move container to workspace "1: Main"

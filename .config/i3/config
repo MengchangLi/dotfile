@@ -1,0 +1,256 @@
+# i3 config file (v4)
+#
+# Please see https://i3wm.org/docs/userguide.html for a complete reference!
+#
+# This config file uses keycodes (bindsym) and was written for the QWERTY
+# layout.
+#
+# To get a config file with the same key positions, but for your current
+# layout, use the i3-config-wizard
+#
+
+# set mod to alt
+set $mod Mod1
+
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below.
+# font pango:monospace 8
+
+# This font is widely installed, provides lots of unicode glyphs, right-to-left
+# text rendering and scalability on retina/hidpi displays (thanks to pango).
+font pango:DejaVu Sans Mono 14
+
+# set wallpaper
+exec --no-startup-id feh --no-fehbg --bg-fill ~/picture/wallpaper.jpg
+
+# auto start fcitx5
+exec --no-startup-id fcitx5
+
+# The combination of xss-lock, nm-applet and pactl is a popular choice, so
+# they are included here as an example. Modify as you see fit.
+
+# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
+# screen before suspend. Use loginctl lock-session to lock your screen.
+# exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+
+# NetworkManager is the most popular way to manage wireless networks on Linux,
+# and nm-applet is a desktop environment-independent system tray GUI for it.
+exec --no-startup-id nm-applet
+
+# adjust the backlight
+exec --no-startup-id /bin/bash ~/.config/i3/start-backlight.sh
+
+# auto hide mouse
+exec --no-startup-id unclutter --timeout=1
+
+# set the time to shut screen
+exec --no-startup-id xset s 0
+exec --no-startup-id xset dpms 3000 6000 12000
+
+# take a screen shot use print
+bindsym Print exec scrot -e 'mv $f /home/kujou/picture/scrot'
+# bindsym Print exec scrot -s -e 'mv $f /home/kujou/picture/scrot'
+
+# Use pactl to adjust volume in PulseAudio.
+set $refresh_i3status killall -SIGUSR1 i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+
+# adjust backlight
+bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
+bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
+
+# start rofi to run desktop app on the top
+bindsym $mod+o exec rofi -show drun -modi drun -location 1 -width 100 -lines 1 -line-margin 0 -line-padding 1 -separator-style none -font "mono 11" -columns 9 -bw 0 -disable-history -hide-scrollbar -theme android_notification -show-icons
+
+# use rofi to switch windows
+# bindsym $mod+Tab exec rofi -show window -location 1 -width 100 -font "mono 12" -lines 5 -columns 9 -bw 0 -disable-history -hide-scrollbar -theme android_notification 
+
+# start terminal
+bindsym $mod+Return exec xfce4-terminal
+
+# start firefox
+bindsym $mod+i exec firefox
+
+# start linedict
+bindsym $mod+m exec --no-startup-id linedict
+
+# start virtualbox
+# bindsym $mod+o exec virtualbox
+# start dmenu (a program launcher)
+# bindsym Mod1+d exec --no-startup-id dmenu_run
+# A more modern dmenu replacement is rofi:
+# bindsym Mod1+d exec "rofi -modi drun,run -show drun"
+# There also is i3-dmenu-desktop which only displays applications shipping a
+# .desktop file. It is a wrapper around dmenu, so you need that installed.
+# bindsym Mod1+d exec --no-startup-id i3-dmenu-desktop
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# change focus
+# bindsym $mod+h focus left
+# bindsym $mod+j focus down
+# bindsym $mod+k focus up
+# bindsym $mod+l focus right
+
+# alternatively, you can use the cursor keys:
+# bindsym Mod1+Left focus left
+# bindsym Mod1+Down focus down
+# bindsym Mod1+Up focus up
+# bindsym Mod1+Right focus right
+
+# move focused window
+# bindsym Mod1+Shift+$left move left
+# bindsym Mod1+Shift+$down move down
+# bindsym Mod1+Shift+$up move up
+# bindsym Mod1+Shift+$right move right
+
+# alternatively, you can use the cursor keys:
+# bindsym Mod1+Shift+Left move left
+# bindsym Mod1+Shift+Down move down
+# bindsym Mod1+Shift+Up move up
+# bindsym Mod1+Shift+Right move right
+
+# split in horizontal orientation
+# bindsym Mod1+h split h
+
+# split in vertical orientation
+# bindsym Mod1+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+# bindsym Mod1+s layout stacking
+# bindsym Mod1+w layout tabbed
+# bindsym Mod1+e layout toggle split
+
+# toggle tiling / floating
+# bindsym Mod1+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+# bindsym Mod1+space focus mode_toggle
+
+# focus the parent container
+# bindsym Mod1+a focus parent
+
+# focus the child container
+#bindsym Mod1+d focus child
+
+# move the currently focused window to the scratchpad
+# bindsym Mod1+Shift+minus move scratchpad
+
+# Show the next scratchpad window or hide the focused scratchpad window.
+# If there are multiple scratchpad windows, this command cycles through them.
+# bindsym Mod1+minus scratchpad show
+
+# Define names for default workspaces for which we configure key bindings later on.
+# We use variables to avoid repeating the names in multiple places.
+set  $ws1 " terminal"
+set  $ws2 " music"
+set  $ws3 " firefox"
+set  $ws4 " virtualbox"
+set  $ws5 " video"
+set  $ws9 " idea"
+ 
+# switch to workspace
+bindsym $mod+L workspace next
+bindsym $mod+H workspace prev
+# bindsym $mod+l workspace previous
+bindsym $mod+Home workspace " terminal"
+# bindsym $mod+3 workspace "3: Bench"
+# bindsym $mod+4 workspace "4: Home"
+# bindsym $mod+5 workspace "5: Other"
+
+# move focused container to workspace
+# bindsym $mod+Shift+1 move container to workspace "1: Main"
+# bindsym $mod+Shift+2 move container to workspace "2: Web"
+# bindsym $mod+Shift+3 move container to workspace "3: Bench"
+# bindsym $mod+Shift+4 move container to workspace "4: Home"
+# bindsym $mod+Shift+5 move container to workspace "5: Other"
+
+# attach app to certain window
+assign [class="Xfce4-terminal"] " terminal"
+assign [class="firefox"] " firefox"
+assign [class="VirtualBox Manager"]" virtualbox"
+assign [class="jetbrains-idea"]" idea"
+assign [class="vlc"] " video"
+assign [class="Netease-cloud-music-gtk"]" music"
+
+# reload the configuration file
+bindsym Mod1+Shift+c reload
+# restart i3 inplace 
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+# bindsym Mod1+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+# resize window (you can also use the mouse for that)
+# # mode "resize" {
+        # # These bindings trigger as soon as you enter the resize mode
+# 
+        # # Pressing left will shrink the window’s width.
+        # # Pressing right will grow the window’s width.
+        # # Pressing up will shrink the window’s height.
+        # # Pressing down will grow the window’s height.
+        # bindsym $left       resize shrink width 10 px or 10 ppt
+        # bindsym $down       resize grow height 10 px or 10 ppt
+        # bindsym $up         resize shrink height 10 px or 10 ppt
+        # bindsym $right      resize grow width 10 px or 10 ppt
+# 
+        # # same bindings, but for the arrow keys
+        # bindsym Left        resize shrink width 10 px or 10 ppt
+        # bindsym Down        resize grow height 10 px or 10 ppt
+        # bindsym Up          resize shrink height 10 px or 10 ppt
+        # bindsym Right       resize grow width 10 px or 10 ppt
+# 
+        # # back to normal: Enter or Escape or Mod1+r
+        # bindsym Return mode "default"
+        # bindsym Escape mode "default"
+        # bindsym Mod1+r mode "default"
+# }
+
+# bindsym $mod+r mode "resize"
+
+set $mode_system System (s)  shutdown, (r)  reboot, (l)  logout
+mode "$mode_system" {
+    bindsym r exec --no-startup-id reboot, mode "default"
+    bindsym s exec --no-startup-id poweroff -i, mode "default"  
+    bindsym l exec i3-msg exit, mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym Escape mode "default"
+}
+bindsym $mod+BackSpace mode "$mode_system"
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+bar {
+        status_command i3status
+	status_command exec ~/.config/i3/net-speed.sh
+	workspace_buttons yes
+	font pango:Dejavu Sans Mono, Icons 14
+	separator_symbol " "
+       colors {
+         background #10101000
+         statusline #FFFFFF
+         separator  #3399FF
+         # 工作区颜色         边框    背景    文字
+         focused_workspace  #3297FD #11111100 #FFFFFF
+         active_workspace   #FFFFFF #FFFFFF00 #FFFFFF
+         inactive_workspace #111111 #11111100 #FFFFFF
+         urgent_workspace   #990000 #11111100 #FFFFFF
+         binding_mode       #990000 #99000000 #FFFFFF
+         }
+}
+
+# now windows edge
+new_window none
+new_float normal
+hide_edge_borders both
+
+#set gaps
+gaps inner 8
+gaps outer 6

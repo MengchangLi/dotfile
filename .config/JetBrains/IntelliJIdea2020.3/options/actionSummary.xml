@@ -1,0 +1,16 @@
+<application>
+  <component name="ActionsLocalSummary">
+    <e n="TypeHierarchy">
+      <i c="1" l="1615810075784" />
+    </e>
+    <e n="WelcomeScreen.OpenProject">
+      <i c="2" l="1615808305405" />
+    </e>
+    <e n="com.intellij.notification.NotificationAction$Simple">
+      <i c="1" l="1615808323322" />
+    </e>
+    <e n="com.intellij.openapi.wm.impl.ToolWindowHeader$HideAction">
+      <i c="2" l="1615810079110" />
+    </e>
+  </component>
+</application>

@@ -151,7 +151,7 @@ bindsym $mod+f fullscreen toggle
 # We use variables to avoid repeating the names in multiple places.
 set  $ws1 " terminal"
 # set  $ws2 " music"
-set  $ws3 " firefox"
+set  $ws2 " firefox"
 # set  $ws4 " virtualbox"
 # set  $ws5 " video"
 # set  $ws9 " idea"

@@ -7,8 +7,8 @@ setopt notify
 # set nobeep
 unsetopt beep
 
-# use emace bindkey
-bindkey -v
+# use emacs bindkey
+bindkey -e
 
 # about commpletion
 zstyle :compinstall filename '/home/kujou/.zshrc'
@@ -53,6 +53,7 @@ RPROMPT='%F{cyan}[%F{yellow}%?%F{cyan}]%f'
 
 # some alias
 alias vi=vim
+alias em="emacs -nw"
 alias ls='ls --color=auto'
 alias ll='ls -lh --color=auto'
 alias la='ls -ah --color=auto'
@@ -70,4 +71,3 @@ alias catip='curl cip.cc'
 alias setproxy='export all_proxy=socks5://127.0.0.1:1080'
 alias unsetproxy='unset all_proxy'
 alias ra='ranger'
-

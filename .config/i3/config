@@ -35,7 +35,7 @@ exec --no-startup-id fcitx5
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
+# exec --no-startup-id nm-applet
 
 # adjust the backlight
 exec --no-startup-id /bin/bash ~/.config/i3/start-backlight.sh
@@ -63,7 +63,7 @@ bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up
 bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
 
 # start rofi to run desktop app on the top
-bindsym $mod+o exec rofi -show drun -modi drun -location 1 -width 100 -lines 1 -line-margin 0 -line-padding 1 -separator-style none -font "mono 11" -columns 9 -bw 0 -disable-history -hide-scrollbar -theme android_notification -show-icons
+# bindsym $mod+o exec rofi -show drun -modi drun -location 1 -width 100 -lines 1 -line-margin 0 -line-padding 1 -separator-style none -font "mono 11" -columns 9 -bw 0 -disable-history -hide-scrollbar -theme android_notification -show-icons
 
 # use rofi to switch windows
 # bindsym $mod+Tab exec rofi -show window -location 1 -width 100 -font "mono 12" -lines 5 -columns 9 -bw 0 -disable-history -hide-scrollbar -theme android_notification 
@@ -150,11 +150,11 @@ bindsym $mod+f fullscreen toggle
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set  $ws1 " terminal"
-set  $ws2 " music"
+# set  $ws2 " music"
 set  $ws3 " firefox"
-set  $ws4 " virtualbox"
-set  $ws5 " video"
-set  $ws9 " idea"
+# set  $ws4 " virtualbox"
+# set  $ws5 " video"
+# set  $ws9 " idea"
  
 # switch to workspace
 bindsym $mod+L workspace next
@@ -175,10 +175,10 @@ bindsym $mod+Home workspace " terminal"
 # attach app to certain window
 assign [class="Xfce4-terminal"] " terminal"
 assign [class="firefox"] " firefox"
-assign [class="VirtualBox Manager"]" virtualbox"
-assign [class="jetbrains-idea"]" idea"
-assign [class="vlc"] " video"
-assign [class="Netease-cloud-music-gtk"]" music"
+# assign [class="VirtualBox Manager"]" virtualbox"
+# assign [class="jetbrains-idea"]" idea"
+# assign [class="vlc"] " video"
+# assign [class="Netease-cloud-music-gtk"]" music"
 
 # reload the configuration file
 bindsym Mod1+Shift+c reload

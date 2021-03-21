@@ -52,6 +52,7 @@ PROMPT='%F{red}%n%F{cyan}@%F{blue}%T %F{green}%~ %F{cyan}> %f'
 RPROMPT='%F{cyan}[%F{yellow}%?%F{cyan}]%f'
 
 # some alias
+alias l="ls -lh --color=auto"
 alias vi=vim
 alias em="emacs -nw"
 alias ls='ls --color=auto'
@@ -68,6 +69,6 @@ alias rm='rm -iv'
 alias cp='cp -iv'
 alias mv='mv -iv'
 alias catip='curl cip.cc'
-alias setproxy='export all_proxy=socks5://127.0.0.1:1080'
+alias setproxy='export all_proxy=https://127.0.0.1:1080'
 alias unsetproxy='unset all_proxy'
 alias ra='ranger'

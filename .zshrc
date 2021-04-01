@@ -8,7 +8,7 @@ setopt notify
 unsetopt beep
 
 # use emacs bindkey
-bindkey -e
+bindkey -v
 
 # about commpletion
 zstyle :compinstall filename '/home/kujou/.zshrc'
@@ -69,6 +69,7 @@ alias rm='rm -iv'
 alias cp='cp -iv'
 alias mv='mv -iv'
 alias catip='curl cip.cc'
-alias setproxy='export all_proxy=https://127.0.0.1:1080'
+alias setproxy='export all_proxy=socks5://127.0.0.1:1080'
 alias unsetproxy='unset all_proxy'
 alias ra='ranger'
+alias ocd='openocd -f /usr/share/openocd/scripts/interface/cmsis-dap.cfg -f /usr/share/openocd/scripts/target/stm32f1x.cfg'

@@ -26,6 +26,9 @@ exec --no-startup-id feh --no-fehbg --bg-fill ~/picture/wallpaper.jpg
 # auto start fcitx5
 exec --no-startup-id fcitx5
 
+# start polybar
+# exec --no-startup-id bash ~/.config/polybar/cuts/launch.sh
+
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
 
@@ -91,10 +94,10 @@ bindsym $mod+m exec --no-startup-id linedict
 bindsym $mod+Shift+q kill
 
 # change focus
-# bindsym $mod+h focus left
-# bindsym $mod+j focus down
-# bindsym $mod+k focus up
-# bindsym $mod+l focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
 # bindsym Mod1+Left focus left
@@ -129,7 +132,7 @@ bindsym $mod+f fullscreen toggle
 # bindsym Mod1+e layout toggle split
 
 # toggle tiling / floating
-# bindsym Mod1+Shift+space floating toggle
+bindsym Mod1+Shift+space floating toggle
 
 # change focus between tiling / floating windows
 # bindsym Mod1+space focus mode_toggle
@@ -141,70 +144,71 @@ bindsym $mod+f fullscreen toggle
 #bindsym Mod1+d focus child
 
 # move the currently focused window to the scratchpad
-# bindsym Mod1+Shift+minus move scratchpad
+bindsym Mod1+Shift+minus move scratchpad
 
 # Show the next scratchpad window or hide the focused scratchpad window.
 # If there are multiple scratchpad windows, this command cycles through them.
-# bindsym Mod1+minus scratchpad show
+bindsym Mod1+minus scratchpad show
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set  $ws1 " terminal"
-set  $ws3 " music"
-set  $ws2 " firefox"
-set  $ws4 " virtualbox"
-set  $ws5 " video"
-set  $ws6 " idea"
-set  $ws7 " clion"
-set  $ws8 " pycharm"
-set  $ws9 " goland"
-set  $ws10 " mysql"
-set  $ws11 " telegram"
-set  $ws12 " obs"
-set  $ws13 " wps"
-set  $ws14 " pidgin"
-set  $ws15 " ise"
-set  $ws16 " youdao"
+set  $ws1 "1: main"
+set  $ws4 "4: home"
+set  $ws2 "2: web"
+# set  $ws4 " virtualbox"
+# set  $ws5 " video"
+set  $ws3 "3: utils"
+set  $ws5 "5: Other"
+# set  $ws7 " clion"
+# set  $ws8 " pycharm"
+# set  $ws9 " goland"
+# set  $ws10 " mysql"
+# set  $ws11 " telegram"
+# set  $ws12 " obs"
+# set  $ws13 " wps"
+# set  $ws14 " pidgin"
+# set  $ws15 " ise"
+# set  $ws16 " youdao"
  
 # switch to workspace
-bindsym $mod+L workspace next
-bindsym $mod+H workspace prev
+bindsym $mod+Tab workspace next
 # bindsym $mod+l workspace previous
-bindsym Home workspace " terminal"
-# bindsym $mod+3 workspace "3: Bench"
-# bindsym $mod+4 workspace "4: Home"
-# bindsym $mod+5 workspace "5: Other"
+bindsym $mod+1 workspace "1: main"
+bindsym $mod+2 workspace "2: web"
+bindsym $mod+3 workspace "3: utils"
+bindsym $mod+4 workspace "4: home"
+bindsym $mod+5 workspace "5: other"
 
 # move focused container to workspace
-# bindsym $mod+Shift+1 move container to workspace "1: Main"
-# bindsym $mod+Shift+2 move container to workspace "2: Web"
-# bindsym $mod+Shift+3 move container to workspace "3: Bench"
-# bindsym $mod+Shift+4 move container to workspace "4: Home"
-# bindsym $mod+Shift+5 move container to workspace "5: Other"
+bindsym $mod+Shift+1 move container to workspace "1: main"
+bindsym $mod+Shift+2 move container to workspace "2: web"
+bindsym $mod+Shift+3 move container to workspace "3: utils"
+bindsym $mod+Shift+4 move container to workspace "4: home"
+bindsym $mod+Shift+5 move container to workspace "5: other"
 
 # attach app to certain window
-assign [class="Xfce4-terminal"] " terminal"
-assign [class="firefox"] " firefox"
-assign [class="VirtualBox Manager"]" virtualbox"
-assign [class="jetbrains-idea"]" idea"
-assign [class="jetbrains-clion"]" clion"
-assign [class="jetbrains-goland"]" goland"
-assign [class="jetbrains-pycharm"]" pycharm"
-assign [class="vlc"] " video"
-assign [class="Netease-cloud-music-gtk"]" music"
-assign [class="Mysql-workbench-bin"] " mysql"
-assign [class="TelegramDesktop"]" telegram"
-assign [class="obs"]" obs"
-assign [class="Wps"]" wps"
-assign [class="te"]" wps"
-assign [class="tepdf"]" wps"
-assign [class="Wpp"]" wps"
-assign [class="Pidgin"]" pidgin"
-assign [class="_pn"]" ise"
-assign [class="Youdao Dict"] " youdao"
-
-# reload the configuration file
-# bindsym Mod1+Shift+c reload
+assign [class="Xfce4-terminal"]"1: main"
+assign [class="firefox"] "2: web"
+assign [class="VirtualBox Manager"]"5: other"
+assign [class="jetbrains-idea"]"3: utils"
+assign [class="jetbrains-clion"]"3: utils"
+assign [class="jetbrains-goland"]"3: utils"
+assign [class="jetbrains-pycharm"]"3: utils"
+assign [class="Gtkwave"]"3: utils"
+assign [class="vlc"]"4: home"
+assign [class="Netease-cloud-music-gtk"]"4: home"
+assign [class="Mysql-workbench-bin"]"3: utils"
+assign [class="TelegramDesktop"]"4: home"
+assign [class="obs"]"4: home"
+assign [class="Wps"]"5: other"
+assign [class="te"]"5: other"
+assign [class="Wpspdf"]"5: other"
+assign [class="Wpp"]"5: other"
+assign [class="_pn"]"3: utils"
+assign [class="Steam"]"5: other"
+# 
+# # reload the configuration file
+# # bindsym Mod1+Shift+c reload
 # restart i3 inplace 
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
@@ -250,12 +254,13 @@ bindsym $mod+BackSpace mode "$mode_system"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
+# bar {
 bar {
         status_command i3status
-	status_command exec ~/.config/i3/net-speed.sh
-	workspace_buttons yes
-	font pango:Dejavu Sans Mono, Icons 14
-	separator_symbol " "
+       status_command exec ~/.config/i3/net-speed.sh
+       workspace_buttons yes
+       font pango:Dejavu Sans Mono, Icons 15
+       separator_symbol " "
        colors {
          background #10101000
          statusline #FFFFFF
@@ -269,6 +274,8 @@ bar {
          }
 }
 
+# }
+# 
 # now windows edge
 new_window none
 new_float normal

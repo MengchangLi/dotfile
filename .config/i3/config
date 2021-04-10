@@ -51,8 +51,8 @@ exec --no-startup-id xset s 0
 exec --no-startup-id xset dpms 3000 6000 12000
 
 # take a screen shot use print
-bindsym Print exec scrot -e 'mv $f /home/kujou/picture/scrot'
-# bindsym Print exec scrot -s -e 'mv $f /home/kujou/picture/scrot'
+# bindsym Print exec scrot -e 'mv $f /home/kujou/picture/scrot'
+bindsym Print exec scrot -s -e 'mv $f /home/kujou/picture/scrot'
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -132,7 +132,7 @@ bindsym $mod+f fullscreen toggle
 # bindsym Mod1+e layout toggle split
 
 # toggle tiling / floating
-bindsym Mod1+Shift+space floating toggle
+# bindsym Mod1+Shift+space floating toggle
 
 # change focus between tiling / floating windows
 # bindsym Mod1+space focus mode_toggle
@@ -189,23 +189,10 @@ bindsym $mod+Shift+5 move container to workspace "5: other"
 # attach app to certain window
 assign [class="Xfce4-terminal"]"1: main"
 assign [class="firefox"] "2: web"
-assign [class="VirtualBox Manager"]"5: other"
 assign [class="jetbrains-idea"]"3: utils"
-assign [class="jetbrains-clion"]"3: utils"
-assign [class="jetbrains-goland"]"3: utils"
-assign [class="jetbrains-pycharm"]"3: utils"
-assign [class="Gtkwave"]"3: utils"
-assign [class="vlc"]"4: home"
-assign [class="Netease-cloud-music-gtk"]"4: home"
-assign [class="Mysql-workbench-bin"]"3: utils"
-assign [class="TelegramDesktop"]"4: home"
-assign [class="obs"]"4: home"
-assign [class="Wps"]"5: other"
-assign [class="te"]"5: other"
-assign [class="Wpspdf"]"5: other"
-assign [class="Wpp"]"5: other"
-assign [class="_pn"]"3: utils"
-assign [class="Steam"]"5: other"
+assign [class="Postman"] "3: utils"
+assign [class="Evince"]"4: home"
+assign [class="VirtualBox Manager"]"5: other"
 # 
 # # reload the configuration file
 # # bindsym Mod1+Shift+c reload

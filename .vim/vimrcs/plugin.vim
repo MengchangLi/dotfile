@@ -23,7 +23,7 @@ Plug 'preservim/nerdcommenter'
 Plug 'dense-analysis/ale'
 
 " generate tags
-Plug 'ludovicchabant/vim-gutentags'
+" Plug 'ludovicchabant/vim-gutentags'
 
 " run file in a colon
 Plug 'skywind3000/asyncrun.vim'

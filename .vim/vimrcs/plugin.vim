@@ -3,30 +3,45 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/plugged')
 
+" complete plugin
 Plug 'ycm-core/YouCompleteMe'
 
+" plugin that beauties the title and bar
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
+" plugin that auto pairs () etc
 Plug 'jiangmiao/auto-pairs'
 
+" file tree
 Plug 'preservim/nerdtree'
 
+" quick comment
 Plug 'preservim/nerdcommenter'
 
+" check errors
 Plug 'dense-analysis/ale'
 
+" generate tags
 Plug 'ludovicchabant/vim-gutentags'
 
+" run file in a colon
 Plug 'skywind3000/asyncrun.vim'
 
+" find things
 Plug 'Yggdroot/LeaderF'
 
+" show git difference
 Plug 'mhinz/vim-signify'
 
+" echo function in the command line
 Plug 'Shougo/echodoc.vim'
 
-Plug 'liuchengxu/vim-which-key'
+" bindsym keys
+" Plug 'liuchengxu/vim-which-key'
+
+" show tags in a new window
+Plug 'preservim/tagbar'
 
 call plug#end()
 
@@ -266,8 +281,21 @@ let g:echodoc#enable_at_startup = 1
 " => whcih-key
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " trigger which-key
-nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
+" nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => indent guides
+" => tagbar
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nmap <F2> :TagbarToggle<CR>
+imap <F2> <ESC>:TagbarToggle<CR>
+autocmd VimEnter * nested :TagbarOpen
+" set the width
+let g:tagbar_width = 27
+" set if show the help note
+let g:tagbar_compact = 1
+" the number of spaces each level indented
+let g:tagbar_indent = 0
+" show data type
+let g:tagbar_show_data_type = 1
+" show absolute line numbers
+let g:tagbar_show_linenumbers = 1
